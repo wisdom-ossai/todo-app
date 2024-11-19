@@ -10,15 +10,20 @@ type Todo = {
 
 type TodosState = {
   items: Todo[];
+  searchTerm: string;
 };
 
 const initialState: TodosState = {
   items: [],
+  searchTerm: "",
 };
 
 const todosSlice = createSlice({
   name: "todos",
-  initialState,
+  initialState: {
+    ...initialState,
+    searchTerm: "sidosi",
+  },
   reducers: {
     addTodo: (state, action: PayloadAction<string>) => {
       state.items.push({
@@ -34,9 +39,13 @@ const todosSlice = createSlice({
     deleteTodo: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter((todo) => todo.id !== action.payload);
     },
+    setSearchTerm: (state, action: PayloadAction<string>) => {
+      state.searchTerm = action.payload;
+    },
   },
 });
 
-export const { addTodo, toggleTodo, deleteTodo } = todosSlice.actions;
+export const { addTodo, toggleTodo, deleteTodo, setSearchTerm } =
+  todosSlice.actions;
 export const selectTodos = (state: RootState) => state.todos.items;
 export default todosSlice.reducer;

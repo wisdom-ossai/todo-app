@@ -17,7 +17,6 @@ const TodoItem: React.FC<TodoItemProps> = React.memo(
       <div
         // style={{ textDecoration: completed ? "line-through" : "none" }}
         style={{
-          marginTop: "1rem",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -25,6 +24,7 @@ const TodoItem: React.FC<TodoItemProps> = React.memo(
           borderRadius: 8,
           paddingInline: ".5rem",
           paddingBlock: "1rem",
+          width: "100%",
         }}
         className={completed ? "completed" : ""}
       >

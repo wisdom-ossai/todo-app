@@ -1,6 +1,7 @@
 import { useAppDispatch } from "@/hooks/useStore";
 import React, { FormEvent } from "react";
 import { addTodo } from "../todosSlice";
+import Input from "@/atoms/input";
 
 const AddTodo: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -11,7 +12,7 @@ const AddTodo: React.FC = () => {
       const form = e.target as HTMLFormElement;
       const formData = new FormData(form);
       const values = Object.fromEntries(formData.entries());
-      if ((values.todo as string).trim()) {
+      if ((values.todo as string)?.trim()) {
         dispatch(addTodo(values.todo as string));
         form.reset();
       }
@@ -20,9 +21,11 @@ const AddTodo: React.FC = () => {
   );
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="todo" placeholder="Add a new task" />
-      <button type="submit">Add Todo</button>
+    <form onSubmit={handleSubmit} className="add-todo">
+      <Input label="Add new task" name="todo" />
+      <button type="submit" className="">
+        Add Todo
+      </button>
     </form>
   );
 };
