@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
+## Kunochdigi Todo App Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### How to Execute and test the solution
 
-Currently, two official plugins are available:
+1.  clone the repository by running `git clone https://github.com/wisdom-ossai/todo-app.git`
+2.  Run `npm install` to install all dependencies
+3.  Start the app by running `npm run dev`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Features included:
 
-## Expanding the ESLint configuration
+1.  Show list of todos
+2.  Show empty state if no todo item has been added
+3.  Create Todo by entering a short description and either pressing enter or click the 'Add Todo' button
+4.  Persist Added Todos in the LocalStorage of the browser. So even if the page is refreshed the added todos still exist
+5.  Mark A todo as completed
+6.  Delete Todo
+7.  Search todo item by name
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Technologies
 
-- Configure the top-level `parserOptions` property like this:
+Libraries used can be found in the package.json file. Some are listed below
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. React
+2. Vite
+3. Typescript
+4. React Redux
+5. Redux Persist
+6. ES Lint
